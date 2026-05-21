@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 TEMP_LIMIT = 200
 PRESSURE_LIMIT = 80
 VIBRATION_LIMIT = 10
@@ -7,6 +8,7 @@ MOTOR_SPEED_LIMIT = 200
 file = open("sample_data.csv")
 header = file.readline()
 
+times = []
 temperatures = []
 pressures = []
 vibrations = []
@@ -20,7 +22,7 @@ print("Warnings:")
 for line in file:
     parts = line.strip().split(",")
 
-    time = parts[0]
+    time = float(parts[0])
     temp = float(parts[1])
     pressure = float(parts[2])
     vibration = float(parts[3])
@@ -28,6 +30,7 @@ for line in file:
     motor_speed = float(parts[5])
 
 
+    times.append(time)
     temperatures.append(temp)
     pressures.append(pressure)
     vibrations.append(vibration)
@@ -97,3 +100,11 @@ print("")
 print("Average motor speed:", format(average_motor_speed,".2f"))
 print("Maximum motor speed:", max(motor_speeds))
 print("Minimum motor speed:", min(motor_speeds))
+
+#graph codes
+plt.plot(times,temperatures)
+plt.xlabel("Time")
+plt.ylabel("Temperature")
+plt.title("Temperature over Time")
+plt.savefig("temperature_graph.png")
+plt.show()
