@@ -1,0 +1,4 @@
+Engineering Test Data Report
+------------------------------
+Summary:
+Average temperature: 177.67

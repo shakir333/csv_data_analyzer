@@ -107,4 +107,12 @@ plt.xlabel("Time")
 plt.ylabel("Temperature")
 plt.title("Temperature over Time")
 plt.savefig("temperature_graph.png")
+
+report = open("report.txt", "w")
+report.write("Engineering Test Data Report\n")
+report.write("------------------------------\n")
+report.write("Summary:\n")
+report.write("Average temperature: " + format(average_temp,".2f") + "\n")
+report.close()
+
 plt.show()
